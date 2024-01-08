@@ -8,7 +8,7 @@ class Workspaces(Migration):
         """
         Run the migrations.
         """
-        with self.schema.create("workspaces") as table:
+        with self.schema.create('workspaces') as table:
             table.increments("id")
             table.string('name')
             table.text('description')
@@ -19,4 +19,4 @@ class Workspaces(Migration):
         """
         Revert the migrations.
         """
-        self.schema.drop("workspaces")
+        self.schema.drop('workspaces')
