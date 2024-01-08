@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+
+<div style="margin-top: 20px" class="card" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">{{workspace.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+      {{workspace.description}}
+    </h6>
+    <p class="card-text">Date: {{workspace.created_at}}</p>
+    <a
+      href="{{route('edit', {'id': workspace.id})}}"
+      class="btn btn-success"
+      style="background-color: #e54985; border-color: #e54985"
+    >
+      Update
+    </a>
+    <a
+      href="{{route('destroy', {'id': workspace.id})}}"
+      class="btn btn-danger"
+      style="background-color: white; color: #e54985"
+    >
+      Delete
+    </a>
+  </div>
+</div>
+{% endblock content %}

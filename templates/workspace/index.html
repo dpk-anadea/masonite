@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+<h1 style="color: #e54985" class="display-1">Workspaces</h1>
+{% for w in workspace %}
+
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">{{w.name}}</h5>
+    <p class="card-text">{{w.description}}</p>
+    <a
+      href="{{route('show', {'id': w.id})}}"
+      class="card-link"
+      style="color: #e54985"
+      >Detail</a
+    >
+  </div>
+</div>
+
+{% endfor %} {% endblock content %}
