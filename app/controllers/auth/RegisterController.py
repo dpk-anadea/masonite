@@ -28,4 +28,4 @@ class RegisterController(Controller):
         if not user:
             return response.redirect("/register")
 
-        return response.redirect("/home")
+        return response.redirect("/")

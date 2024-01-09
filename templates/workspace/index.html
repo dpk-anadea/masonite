@@ -7,10 +7,24 @@
     <h5 class="card-title">{{w.name}}</h5>
     <p class="card-text">{{w.description}}</p>
     <a
+      href="{{route('edit', {'id': w.id})}}"
+      class="btn btn-success"
+      style="background-color: #e54985; border-color: #e54985"
+    >
+      Update
+    </a>
+    <a
+      href="{{route('destroy', {'id': w.id})}}"
+      class="btn btn-danger"
+      style="background-color: white; color: #e54985"
+    >
+      Delete
+    </a>
+    <a
       href="{{route('show', {'id': w.id})}}"
       class="card-link"
       style="color: #e54985"
-      >Detail</a
+      >Details</a
     >
   </div>
 </div>

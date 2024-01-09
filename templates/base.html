@@ -15,7 +15,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Datalab</a>
+        <a class="navbar-brand" href="{{route('index')}}">Datalab</a>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -29,6 +29,16 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('create')}}"
                 >Create workspace
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="d-flex justify-content-between" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="{{route('login')}}"
+                >Logout
               </a>
             </li>
           </ul>
