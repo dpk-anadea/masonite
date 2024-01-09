@@ -10,13 +10,13 @@ ROUTES = [
     Route.post('/workspace/@id/update', "WorkspacesController@update").name('update'),
     Route.get('/workspace/@id/delete', "WorkspacesController@destroy").name('destroy'),
 
-    Route.get('/project', "ProjectController@index").name('projects'),
-    Route.get('/project/create', "ProjectController@create").name('project_create'),
-    Route.post('/project/store', "ProjectController@store").name('project_store'),
-    Route.get('/project/@id', "ProjectController@show").name('project_show'),
-    Route.get('/project/@id/edit', "ProjectController@edit").name('project_edit'),
-    Route.post('/project/@id/update', "ProjectController@update").name('project_update'),
-    Route.get('/project/@id/delete', "ProjectController@destroy").name('project_destroy'),
+    Route.get('/workspace/@id/projects', "ProjectController@index").name('projects'),
+    Route.get('/workspace/@id/project/create', "ProjectController@create").name('project_create'),
+    Route.post('/workspace/@id/project/store', "ProjectController@store").name('project_store'),
+    Route.get('/workspace/@id/project/@project_id', "ProjectController@show").name('project_show'),
+    Route.get('/workspace/@id//project/@project_id/edit', "ProjectController@edit").name('project_edit'),
+    Route.post('/workspace/@id/project/@project_id/update', "ProjectController@update").name('project_update'),
+    Route.get('/workspace/@id/project/@project_id/delete', "ProjectController@destroy").name('project_destroy'),
 ]
 
 ROUTES += Auth.routes()

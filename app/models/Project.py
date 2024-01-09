@@ -6,7 +6,7 @@ from masoniteorm.models import Model
 
 class Project(Model):
     """Project Model"""
-    __fillable__ = ['title', 'workspace_id', 'body']
+    __fillable__ = ['name', 'workspace_id', 'body']
 
     @has_many('workspace_id', 'id')
     def workspace(self):

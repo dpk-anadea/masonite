@@ -2,17 +2,18 @@ from masonite.controllers import Controller
 from masonite.response import Response
 from masonite.request import Request
 from masonite.views import View
+from config.database import DB
 
 from app.models.Workspaces import Workspaces
 from app.models.Project import Project
 
 
 class ProjectController(Controller):
-    def index(self, view: View):
-        project = Project.all()
-
+    def index(self, view: View, request: Request):
+        id = request.param('id')
+        projects = Project.where('workspace_id', id)
         context = {
-            'project': project
+            'project': projects
         }
         return view.render("project.index",  context)
 
@@ -20,12 +21,12 @@ class ProjectController(Controller):
         return view.render("project.create")
 
     def store(self, view: View, response: Response, request: Request):
-
+      
         post_data = request.only('name', 'workspace_id')
 
         Project.create(post_data)
 
-        return response.redirect('/project')
+        return response.redirect('/workspace/@id/projects')
 
     def show(self, view: View, request: Request):
         id = request.param('id')
@@ -55,10 +56,10 @@ class ProjectController(Controller):
 
         project.update(post_data)
 
-        return response.redirect('/project')
+        return response.redirect('/workspace/@id/projects')
 
     def destroy(self, response: Response, request: Request ):
         id = request.param('id')
         project = Project.find_or_fail(id)
         project.delete()
-        return response.redirect('/project')
+        return response.redirect('/workspace/@id/projects')
