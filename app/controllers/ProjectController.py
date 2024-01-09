@@ -26,10 +26,10 @@ class ProjectController(Controller):
 
         Project.create(post_data)
 
-        return response.redirect('/workspace/@id/projects')
+        return response.redirect('/workspace/@id')
 
     def show(self, view: View, request: Request):
-        id = request.param('id')
+        id = request.param('project_id')
         project = Project.find_or_fail(id)
 
         context = {
@@ -39,7 +39,7 @@ class ProjectController(Controller):
         return view.render("project.show", context)
 
     def edit(self, view: View, request: Request):
-        id = request.param('id')
+        id = request.param('project_id')
         project = Project.find_or_fail(id)
 
         context = {
@@ -49,17 +49,17 @@ class ProjectController(Controller):
         return view.render("project.edit", context)
 
     def update(self, view: View, response: Response, request: Request):
-        id = request.param('id')
+        id = request.param('project_id')
         project = Project.find_or_fail(id)
 
         post_data = request.only('name')
 
         project.update(post_data)
 
-        return response.redirect('/workspace/@id/projects')
+        return response.redirect('/workspace/@id')
 
     def destroy(self, response: Response, request: Request ):
-        id = request.param('id')
+        id = request.param('project_id')
         project = Project.find_or_fail(id)
         project.delete()
-        return response.redirect('/workspace/@id/projects')
+        return response.redirect('/workspace/@id')

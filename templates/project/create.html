@@ -1,8 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <h2 style="margin-top: 20px">Create project</h2>
 <div class="form">
-  <form action="{{route('project_store'), {'workspace_id': id}}}" method="post">
-    {{csrf_field}}
+  <form action="{{route('project_store', {'id': id})}}" method="post">
     <div class="form-group">
       <label for="name">Project name</label>
       <input type="text" name="name" id="name" class="form-control" />
@@ -10,7 +9,7 @@
     <input
       style="margin-top: 20px; background-color: #e54985; border-color: #e54985"
       type="submit"
-      value="Save"
+      value="Save Project"
       class="btn btn-primary"
     />
   </form>
