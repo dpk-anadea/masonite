@@ -21,7 +21,7 @@ class ProjectController(Controller):
 
     def store(self, view: View, response: Response, request: Request):
 
-        post_data = request.only('name')
+        post_data = request.only('name', 'workspace_id')
 
         Project.create(post_data)
 

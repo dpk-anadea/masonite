@@ -1,3 +1,4 @@
+from masonite.authentication import Auth
 from masonite.routes import Route
 
 ROUTES = [
@@ -17,3 +18,5 @@ ROUTES = [
     Route.post('/project/@id/update', "ProjectController@update").name('project_update'),
     Route.get('/project/@id/delete', "ProjectController@destroy").name('project_destroy'),
 ]
+
+ROUTES += Auth.routes()
