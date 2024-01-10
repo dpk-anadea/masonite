@@ -51,6 +51,17 @@ DATABASES = {
         "prefix": "",
         "log_queries": env("DB_LOG"),
     },
+    "testing": {
+        "driver": "postgres",
+        "host": env("DB_HOST"),
+        "user": env("DB_USERNAME"),
+        "password": env("DB_PASSWORD"),
+        "database": "masonite_test",
+        "port": env("DB_PORT"),
+        "prefix": "",
+        "grammar": "postgres",
+        "log_queries": env("DB_LOG"),
+    },
 }
 
 DB = ConnectionResolver().set_connection_details(DATABASES)

@@ -14,3 +14,7 @@ HASHING = {
 APP_URL = env("APP_URL", "http://localhost:8000/")
 
 MIX_BASE_URL = env("MIX_BASE_URL", None)
+
+AUTOLOAD = [
+    'app',
+]
