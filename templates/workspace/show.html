@@ -19,19 +19,37 @@
       <p class="card-text">Date: {{workspace.created_at}}</p>
     </div>
   </div>
-
-  {% for p in workspace.projects %}
-
-  <div class="card text-bg-success mb-3" style="max-width: 18rem">
-    <div class="card-header">{{p}}</div>
-    <div class="card-body">
-      <h5 class="card-title">Success card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
+  <div class="d-flex flex-wrap gap-3 mt-3 justify-content-between">
+    {% for p in projects %}
+    <div
+      class="card text-bg-primary mb-3"
+      style="max-width: 18rem; background-color: #e54985 !important"
+    >
+      <div class="card-header">{{p.name}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{p.created_at}}</h5>
+        <a
+          href="{{route('project_edit', {'id': workspace.id,'project_id': p.id})}}"
+          class="btn btn-success"
+          style="background-color: #543a44; border-color: #e54985"
+        >
+          Update
+        </a>
+        <a
+          href="{{route('project_destroy', {'id': workspace.id,'project_id': p.id})}}"
+          class="btn btn-danger"
+          style="background-color: white; color: #e54985"
+        >
+          Delete
+        </a>
+        <a
+          href="{{route('project_show', {'id': workspace.id,'project_id': p.id})}}"
+          style="color: #ffffff"
+          >Show</a
+        >
+      </div>
     </div>
+    {% endfor %}
   </div>
 </div>
-
-{% endfor %} {% endblock content %}
+{% endblock content %}

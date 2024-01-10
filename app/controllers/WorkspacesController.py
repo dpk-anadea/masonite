@@ -2,6 +2,8 @@ from masonite.controllers import Controller
 from masonite.views import View
 from masonite.response import Response
 from masonite.request import Request
+
+from app.models.Project import Project
 from app.models.Workspaces import Workspaces
 
 
@@ -28,9 +30,11 @@ class WorkspacesController(Controller):
     def show(self, view: View, request: Request):
         id = request.param('id')
         workspace = Workspaces.find_or_fail(id)
+        projects = Project.where('workspace_id', id).get()
 
         context = {
-            'workspace':workspace
+            'workspace':workspace,
+            'projects': projects,
         }
 
         return view.render("workspace.show", context)

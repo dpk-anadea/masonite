@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+<h2 style="margin-top: 20px">Update project</h2>
+<div class="form">
+  <form
+    action="{{route('project_update', {'id': workspace_id,'project_id': project.id})}}"
+    method="post"
+  >
+    {{csrf_field}}
+
+    <div class="form-group">
+      <label for="name">Project name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="form-control"
+        value="{{project.name}}"
+      />
+    </div>
+
+    <input
+      style="margin-top: 20px; background-color: #e54985; border-color: #e54985"
+      type="submit"
+      value="Save"
+      class="btn btn-primary"
+    />
+  </form>
+</div>
+{% endblock content %}
