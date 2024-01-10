@@ -4,7 +4,6 @@ from masonite.request import Request
 from masonite.views import View
 from config.database import DB
 
-from app.models.Workspaces import Workspaces
 from app.models.Project import Project
 
 
@@ -17,16 +16,18 @@ class ProjectController(Controller):
         }
         return view.render("project.index",  context)
 
-    def create(self, view: View):
-        return view.render("project.create")
+    def create(self, view: View, request: Request):
+        id = request.param('id')
+
+        return view.render("project.create", {'workspace_id': id})
 
     def store(self, view: View, response: Response, request: Request):
-      
-        post_data = request.only('name', 'workspace_id')
+        id = request.param('id')
+        post_data = request.only('name')
 
-        Project.create(post_data)
+        Project.create({'name': post_data['name'], 'workspace_id':id})
 
-        return response.redirect('/workspace/@id')
+        return response.redirect( f'/workspace/{id}')
 
     def show(self, view: View, request: Request):
         id = request.param('project_id')

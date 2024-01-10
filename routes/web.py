@@ -13,7 +13,7 @@ ROUTES = [
     Route.get('/workspace/@id/project/create', "ProjectController@create").name('project_create'),
     Route.post('/workspace/@id/project/store', "ProjectController@store").name('project_store'),
     Route.get('/workspace/@id/project/@project_id', "ProjectController@show").name('project_show'),
-    Route.get('/workspace/@id//project/@project_id/edit', "ProjectController@edit").name('project_edit'),
+    Route.get('/workspace/@id/project/@project_id/edit', "ProjectController@edit").name('project_edit'),
     Route.post('/workspace/@id/project/@project_id/update', "ProjectController@update").name('project_update'),
     Route.get('/workspace/@id/project/@project_id/delete', "ProjectController@destroy").name('project_destroy'),
 ]
