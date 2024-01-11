@@ -16,6 +16,7 @@ DISKS = {
 STATICFILES = {
     # folder          # template alias
     "storage/static": "static/",
-    "storage/compiled": "assets/",
+    "storage/compiled/css": "assets/",
+    "storage/compiled/js": "js/",
     "storage/public": "/",
 }
